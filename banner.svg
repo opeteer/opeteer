@@ -1,11 +1,12 @@
 <svg viewBox="0 0 950 280" width="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Efek Glow Neon Cyan -->
-    <filter id="cyanGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+    <!-- Efek Glow Neon Putih Cerah -->
+    <filter id="whiteNeonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur stdDeviation="8" result="blur2"/>
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
@@ -30,21 +31,17 @@
       <circle cx="3" cy="3" r="0.9" fill="#0d141e" opacity="0.65"/>
     </pattern>
 
-    <!-- Komponen Peluru / Selongsong Taktikal -->
+    <!-- Komponen Peluru Taktikal -->
     <g id="fallingBullet">
-      <!-- Rim selongsong -->
       <rect x="-7" y="32" width="14" height="3" rx="1" fill="#ffb700" stroke="#ff5500" stroke-width="0.8"/>
-      <!-- Badan selongsong -->
       <rect x="-6" y="8" width="12" height="24" fill="#e69500" stroke="#ff5500" stroke-width="0.8"/>
-      <!-- Leher botol peluru -->
       <path d="M -6 8 L -4 3 L 4 3 L 6 8 Z" fill="#cc7a00" stroke="#ff5500" stroke-width="0.8"/>
       <rect x="-4" y="0" width="8" height="3" fill="#ffaa00" stroke="#ff5500" stroke-width="0.8"/>
-      <!-- Ujung proyektil tajam tembaga menyala -->
       <path d="M -4 0 C -4 -7, 0 -16, 0 -16 C 0 -16, 4 -7, 4 0 Z" fill="#ff5500" stroke="#ffcc00" stroke-width="1"/>
       <line x1="0" y1="-12" x2="0" y2="28" stroke="#fff" stroke-width="0.6" opacity="0.4"/>
     </g>
 
-    <!-- Komponen Selongsong Lepas (Empty Casing) -->
+    <!-- Komponen Selongsong Lepas -->
     <g id="fallingCasing">
       <rect x="-5" y="-12" width="10" height="24" rx="1.5" fill="#d97706" stroke="#fbbf24" stroke-width="0.8"/>
       <line x1="-3" y1="-8" x2="-3" y2="8" stroke="#fef08a" stroke-width="0.8" opacity="0.5"/>
@@ -53,11 +50,11 @@
     </g>
 
     <style>
-      /* Animasi Kelap-Kelip Listrik LED Neon */
-      @keyframes neonFlicker {
+      /* Animasi Kelap-Kelip Listrik LED Neon Putih */
+      @keyframes whiteFlicker {
         0%, 17%, 21%, 23%, 25%, 54%, 56%, 100% {
           opacity: 1;
-          filter: drop-shadow(0 0 5px #00f0ff) drop-shadow(0 0 16px #00bfff) drop-shadow(0 0 32px #0077ff);
+          filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 16px #f8fafc) drop-shadow(0 0 30px #cbd5e1);
         }
         18%, 22%, 55% {
           opacity: 0.3;
@@ -121,25 +118,17 @@
       .drop-5 { animation: rainDrop5 2.7s linear infinite; animation-delay: 0.8s; }
       .drop-6 { animation: rainDrop6 3.6s linear infinite; animation-delay: 2.1s; }
 
-      .neon-opeteer {
+      .neon-opeteer-white {
         font-family: 'Courier New', monospace, 'Segoe UI Black', Impact;
-        font-size: 92px;
+        font-size: 96px;
         font-weight: 900;
-        letter-spacing: 14px;
-        fill: #ecfeff;
-        stroke: #00f0ff;
-        stroke-width: 2.8px;
+        letter-spacing: 16px;
+        fill: #ffffff;
+        stroke: #ffffff;
+        stroke-width: 2.5px;
         stroke-dasharray: 4 6; /* Pola titik lampu LED */
         stroke-linecap: round;
-        animation: neonFlicker 3.6s infinite;
-      }
-
-      .sub-indicator {
-        font-family: monospace;
-        font-size: 13px;
-        letter-spacing: 6px;
-        fill: #38bdf8;
-        filter: drop-shadow(0 0 5px #0284c7);
+        animation: whiteFlicker 3.6s infinite;
       }
 
       .hud-frame {
@@ -148,7 +137,7 @@
     </style>
   </defs>
 
-  <!-- Papan Casing Luar (Military Grade Monitor Frame) -->
+  <!-- Frame Monitor Luar -->
   <rect x="10" y="10" width="930" height="260" rx="16" fill="#05080e" stroke="#1e293b" stroke-width="5"/>
   <rect x="18" y="18" width="914" height="244" rx="10" fill="#070c14"/>
 
@@ -157,25 +146,20 @@
 
   <!-- ================= LATAR BLUEPRINT SCHEMATIC PELURU BESAR ================= -->
   <g opacity="0.32" filter="url(#amberGlow)">
-    <!-- Peluru Atas (Solid Profile) -->
+    <!-- Peluru Atas -->
     <g transform="translate(130, 80)">
       <path d="M 0 0 L 25 0 L 25 4 L 460 4 L 540 16 L 620 16 C 670 16, 700 24, 730 26 C 700 28, 670 36, 620 36 L 540 36 L 460 48 L 25 48 L 25 52 L 0 52 Z" 
             fill="none" stroke="#ff8800" stroke-width="1.8"/>
-      <!-- Garis Alur Dalam Shell -->
       <line x1="30" y1="26" x2="720" y2="26" stroke="#ffaa00" stroke-dasharray="6 4" stroke-width="1"/>
       <line x1="460" y1="4" x2="460" y2="48" stroke="#ff7700" stroke-width="1.5"/>
       <line x1="540" y1="16" x2="540" y2="36" stroke="#ff7700" stroke-width="1.5"/>
-      <!-- Penanda Kaliber -->
-      <text x="80" y="22" font-family="monospace" font-size="9" fill="#ff9900" letter-spacing="3">SPEC: 12.7x99mm // HIGH VELOCITY</text>
     </g>
 
-    <!-- Peluru Bawah (Cross-Section Interior Cutaway) -->
+    <!-- Peluru Bawah (Cross Section) -->
     <g transform="translate(130, 160)">
       <path d="M 0 0 L 25 0 L 25 4 L 460 4 L 540 16 L 620 16 C 670 16, 700 24, 730 26 C 700 28, 670 36, 620 36 L 540 36 L 460 48 L 25 48 L 25 52 L 0 52 Z" 
             fill="none" stroke="#ff7700" stroke-width="1.6"/>
-      <!-- Rongga Bubuk Mesiu (Cross Section) -->
       <rect x="40" y="10" width="410" height="32" fill="none" stroke="#ff9900" stroke-dasharray="3 3" stroke-width="1.2"/>
-      <!-- Core Proyektil Tembus Dalam -->
       <polygon points="560,26 630,20 680,26 630,32" fill="none" stroke="#ffaa00" stroke-width="1.5"/>
       <line x1="500" y1="26" x2="560" y2="26" stroke="#ffbb00" stroke-width="2"/>
     </g>
@@ -192,7 +176,7 @@
   <!-- Lapisan Titik Matriks LED Depan -->
   <rect x="18" y="18" width="914" height="244" rx="10" fill="url(#frontLedGrid)"/>
 
-  <!-- Border Garis Neon Rambu HUD (Orange/Red) -->
+  <!-- Border Rambu HUD Orange -->
   <rect x="30" y="30" width="890" height="220" rx="8" fill="none" class="hud-frame" stroke-width="2.5" stroke-dasharray="14 8"/>
 
   <!-- Sudut Taktikal Rambu -->
@@ -201,10 +185,6 @@
   <path d="M 24 235 L 24 256 L 45 256" fill="none" stroke="#ff9900" stroke-width="4"/>
   <path d="M 926 235 L 926 256 L 905 256" fill="none" stroke="#ff9900" stroke-width="4"/>
 
-  <!-- ================= BANNER TEKS NEON OPETEER ================= -->
-  <!-- Teks Utama Berpendar Titik-Titik LED -->
-  <text x="50%" y="152" text-anchor="middle" class="neon-opeteer">OPETEER</text>
-
-  <!-- Status Neon Sub-Bar -->
-  <text x="50%" y="196" text-anchor="middle" class="sub-indicator">● CALIBER: 12.7mm // STATUS: ONLINE // BALLISTIC HUD ●</text>
+  <!-- ================= BANNER TEKS LED PUTIH OPETEER ================= -->
+  <text x="50%" y="172" text-anchor="middle" class="neon-opeteer-white">OPETEER</text>
 </svg>
