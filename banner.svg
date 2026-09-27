@@ -1,190 +1,134 @@
-<svg viewBox="0 0 950 280" width="100%" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 520 620" width="480" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Efek Glow Neon Putih Cerah -->
-    <filter id="whiteNeonGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3.5" result="blur1"/>
-      <feGaussianBlur stdDeviation="8" result="blur2"/>
-      <feMerge>
-        <feMergeNode in="blur2"/>
-        <feMergeNode in="blur1"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Efek Glow Amber/Orange Taktikal -->
-    <filter id="amberGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
+    <!-- Efek Glow Lembut khas Poster Aerospace -->
+    <filter id="wormGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Grid Blueprint Taktikal -->
-    <pattern id="tacticalGrid" width="25" height="25" patternUnits="userSpaceOnUse">
-      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#ff7700" stroke-width="0.35" opacity="0.25"/>
-      <circle cx="25" cy="0" r="0.8" fill="#ff9900" opacity="0.3"/>
-    </pattern>
-
-    <!-- Grid LED Display Depan -->
-    <pattern id="frontLedGrid" width="6" height="6" patternUnits="userSpaceOnUse">
-      <circle cx="3" cy="3" r="0.9" fill="#0d141e" opacity="0.65"/>
-    </pattern>
-
-    <!-- Komponen Peluru Taktikal -->
-    <g id="fallingBullet">
-      <rect x="-7" y="32" width="14" height="3" rx="1" fill="#ffb700" stroke="#ff5500" stroke-width="0.8"/>
-      <rect x="-6" y="8" width="12" height="24" fill="#e69500" stroke="#ff5500" stroke-width="0.8"/>
-      <path d="M -6 8 L -4 3 L 4 3 L 6 8 Z" fill="#cc7a00" stroke="#ff5500" stroke-width="0.8"/>
-      <rect x="-4" y="0" width="8" height="3" fill="#ffaa00" stroke="#ff5500" stroke-width="0.8"/>
-      <path d="M -4 0 C -4 -7, 0 -16, 0 -16 C 0 -16, 4 -7, 4 0 Z" fill="#ff5500" stroke="#ffcc00" stroke-width="1"/>
-      <line x1="0" y1="-12" x2="0" y2="28" stroke="#fff" stroke-width="0.6" opacity="0.4"/>
-    </g>
-
-    <!-- Komponen Selongsong Lepas -->
-    <g id="fallingCasing">
-      <rect x="-5" y="-12" width="10" height="24" rx="1.5" fill="#d97706" stroke="#fbbf24" stroke-width="0.8"/>
-      <line x1="-3" y1="-8" x2="-3" y2="8" stroke="#fef08a" stroke-width="0.8" opacity="0.5"/>
-      <ellipse cx="0" cy="-12" rx="4" ry="1.5" fill="#451a03" stroke="#fbbf24" stroke-width="0.5"/>
-      <rect x="-6" y="10" width="12" height="2.5" fill="#b45309"/>
-    </g>
-
+    <!-- Style Vektor -->
     <style>
-      /* Animasi Kelap-Kelip Listrik LED Neon Putih */
-      @keyframes whiteFlicker {
-        0%, 17%, 21%, 23%, 25%, 54%, 56%, 100% {
-          opacity: 1;
-          filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 16px #f8fafc) drop-shadow(0 0 30px #cbd5e1);
-        }
-        18%, 22%, 55% {
-          opacity: 0.3;
-          filter: none;
-        }
-      }
-
-      /* Animasi Garis Rambu / Border */
-      @keyframes hudPulse {
-        0%, 100% { stroke: #ff6600; opacity: 0.9; }
-        50% { stroke: #ffaa00; opacity: 0.5; }
-      }
-
-      /* Animasi Peluru Berjatuhan Terus-menerus */
-      @keyframes rainDrop1 {
-        0% { transform: translate(110px, -60px) rotate(25deg); opacity: 0; }
-        15% { opacity: 0.9; }
-        85% { opacity: 0.9; }
-        100% { transform: translate(70px, 340px) rotate(190deg); opacity: 0; }
-      }
-
-      @keyframes rainDrop2 {
-        0% { transform: translate(250px, -70px) rotate(-15deg); opacity: 0; }
-        10% { opacity: 0.85; }
-        90% { opacity: 0.85; }
-        100% { transform: translate(220px, 340px) rotate(140deg); opacity: 0; }
-      }
-
-      @keyframes rainDrop3 {
-        0% { transform: translate(440px, -60px) rotate(45deg); opacity: 0; }
-        15% { opacity: 0.9; }
-        85% { opacity: 0.9; }
-        100% { transform: translate(480px, 340px) rotate(260deg); opacity: 0; }
-      }
-
-      @keyframes rainDrop4 {
-        0% { transform: translate(630px, -80px) rotate(-35deg); opacity: 0; }
-        10% { opacity: 0.95; }
-        90% { opacity: 0.95; }
-        100% { transform: translate(600px, 340px) rotate(180deg); opacity: 0; }
-      }
-
-      @keyframes rainDrop5 {
-        0% { transform: translate(790px, -60px) rotate(30deg); opacity: 0; }
-        15% { opacity: 0.85; }
-        85% { opacity: 0.85; }
-        100% { transform: translate(830px, 340px) rotate(210deg); opacity: 0; }
-      }
-
-      @keyframes rainDrop6 {
-        0% { transform: translate(890px, -90px) rotate(-40deg); opacity: 0; }
-        20% { opacity: 0.75; }
-        80% { opacity: 0.75; }
-        100% { transform: translate(860px, 340px) rotate(120deg); opacity: 0; }
-      }
-
-      .drop-1 { animation: rainDrop1 2.8s linear infinite; }
-      .drop-2 { animation: rainDrop2 3.4s linear infinite; animation-delay: 1.1s; }
-      .drop-3 { animation: rainDrop3 2.5s linear infinite; animation-delay: 0.4s; }
-      .drop-4 { animation: rainDrop4 3.1s linear infinite; animation-delay: 1.7s; }
-      .drop-5 { animation: rainDrop5 2.7s linear infinite; animation-delay: 0.8s; }
-      .drop-6 { animation: rainDrop6 3.6s linear infinite; animation-delay: 2.1s; }
-
-      .neon-opeteer-white {
-        font-family: 'Courier New', monospace, 'Segoe UI Black', Impact;
-        font-size: 96px;
+      .nasa-worm-text {
+        font-family: 'Nasarna', 'Arial Rounded MT Bold', 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 900;
-        letter-spacing: 16px;
-        fill: #ffffff;
+        font-size: 88px;
+        fill: none;
         stroke: #ffffff;
-        stroke-width: 2.5px;
-        stroke-dasharray: 4 6; /* Pola titik lampu LED */
+        stroke-width: 14;
         stroke-linecap: round;
-        animation: whiteFlicker 3.6s infinite;
+        stroke-linejoin: round;
+        letter-spacing: 24px;
+        filter: url(#wormGlow);
       }
 
-      .hud-frame {
-        animation: hudPulse 3s infinite ease-in-out;
+      .bracket-line {
+        stroke: #334155;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      .hud-sub {
+        font-family: monospace;
+        font-size: 11px;
+        fill: #64748b;
+        letter-spacing: 3px;
       }
     </style>
   </defs>
 
-  <!-- Frame Monitor Luar -->
-  <rect x="10" y="10" width="930" height="260" rx="16" fill="#05080e" stroke="#1e293b" stroke-width="5"/>
-  <rect x="18" y="18" width="914" height="244" rx="10" fill="#070c14"/>
+  <!-- Latar Belakang Deep Space Minimalis -->
+  <rect width="520" height="620" rx="16" fill="#06090e" stroke="#1e293b" stroke-width="2"/>
 
-  <!-- Blueprint Background Grid -->
-  <rect x="18" y="18" width="914" height="244" rx="10" fill="url(#tacticalGrid)"/>
+  <!-- Garis Pemisah Vertikal Taktikal -->
+  <line x1="170" y1="35" x2="170" y2="585" stroke="#1e293b" stroke-width="2" stroke-dasharray="6 6"/>
 
-  <!-- ================= LATAR BLUEPRINT SCHEMATIC PELURU BESAR ================= -->
-  <g opacity="0.32" filter="url(#amberGlow)">
-    <!-- Peluru Atas -->
-    <g transform="translate(130, 80)">
-      <path d="M 0 0 L 25 0 L 25 4 L 460 4 L 540 16 L 620 16 C 670 16, 700 24, 730 26 C 700 28, 670 36, 620 36 L 540 36 L 460 48 L 25 48 L 25 52 L 0 52 Z" 
-            fill="none" stroke="#ff8800" stroke-width="1.8"/>
-      <line x1="30" y1="26" x2="720" y2="26" stroke="#ffaa00" stroke-dasharray="6 4" stroke-width="1"/>
-      <line x1="460" y1="4" x2="460" y2="48" stroke="#ff7700" stroke-width="1.5"/>
-      <line x1="540" y1="16" x2="540" y2="36" stroke="#ff7700" stroke-width="1.5"/>
-    </g>
-
-    <!-- Peluru Bawah (Cross Section) -->
-    <g transform="translate(130, 160)">
-      <path d="M 0 0 L 25 0 L 25 4 L 460 4 L 540 16 L 620 16 C 670 16, 700 24, 730 26 C 700 28, 670 36, 620 36 L 540 36 L 460 48 L 25 48 L 25 52 L 0 52 Z" 
-            fill="none" stroke="#ff7700" stroke-width="1.6"/>
-      <rect x="40" y="10" width="410" height="32" fill="none" stroke="#ff9900" stroke-dasharray="3 3" stroke-width="1.2"/>
-      <polygon points="560,26 630,20 680,26 630,32" fill="none" stroke="#ffaa00" stroke-width="1.5"/>
-      <line x1="500" y1="26" x2="560" y2="26" stroke="#ffbb00" stroke-width="2"/>
-    </g>
+  <!-- ================= KIRI: TEKS OPETEER VERTIKAL (NASA WORM STYLE) ================= -->
+  <!-- Teks dirotasi -90 derajat (dibaca dari bawah ke atas persis seperti roket NASA) -->
+  <g transform="translate(110, 560) rotate(-90)">
+    <text x="0" y="0" class="nasa-worm-text">OPETEER</text>
   </g>
 
-  <!-- ================= HUJAN PELURU JATUH SECARA AKTIF ================= -->
-  <g class="drop-1"><use href="#fallingBullet"/></g>
-  <g class="drop-2"><use href="#fallingCasing"/></g>
-  <g class="drop-3"><use href="#fallingBullet"/></g>
-  <g class="drop-4"><use href="#fallingCasing"/></g>
-  <g class="drop-5"><use href="#fallingBullet"/></g>
-  <g class="drop-6"><use href="#fallingCasing"/></g>
+  <!-- Indikator sudut koordinat -->
+  <text x="35" y="45" class="hud-sub">SYS // 01</text>
+  <text x="35" y="590" class="hud-sub">STAGE: V</text>
 
-  <!-- Lapisan Titik Matriks LED Depan -->
-  <rect x="18" y="18" width="914" height="244" rx="10" fill="url(#frontLedGrid)"/>
+  <!-- ================= KANAN: TECH STACK BADGES MENUMPUK VERTIKAL ================= -->
+  <!-- Header Stack -->
+  <text x="210" y="45" class="hud-sub">PROPULSION // TECH STACK</text>
+  <line x1="210" y1="55" x2="480" y2="55" stroke="#334155" stroke-width="1.5"/>
 
-  <!-- Border Rambu HUD Orange -->
-  <rect x="30" y="30" width="890" height="220" rx="8" fill="none" class="hud-frame" stroke-width="2.5" stroke-dasharray="14 8"/>
+  <!-- Badge 1: JAVA -->
+  <g transform="translate(210, 75)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#ED8B00" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#ED8B00"/>
+    <image href="https://cdn.simpleicons.org/openjdk/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">JAVA</text>
+  </g>
 
-  <!-- Sudut Taktikal Rambu -->
-  <path d="M 24 45 L 24 24 L 45 24" fill="none" stroke="#ff9900" stroke-width="4"/>
-  <path d="M 926 45 L 926 24 L 905 24" fill="none" stroke="#ff9900" stroke-width="4"/>
-  <path d="M 24 235 L 24 256 L 45 256" fill="none" stroke="#ff9900" stroke-width="4"/>
-  <path d="M 926 235 L 926 256 L 905 256" fill="none" stroke="#ff9900" stroke-width="4"/>
+  <!-- Badge 2: POSTGRESQL -->
+  <g transform="translate(210, 130)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#4169E1" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#4169E1"/>
+    <image href="https://cdn.simpleicons.org/postgresql/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">POSTGRESQL</text>
+  </g>
 
-  <!-- ================= BANNER TEKS LED PUTIH OPETEER ================= -->
-  <text x="50%" y="172" text-anchor="middle" class="neon-opeteer-white">OPETEER</text>
+  <!-- Badge 3: LARAVEL -->
+  <g transform="translate(210, 185)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#FF2D20" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#FF2D20"/>
+    <image href="https://cdn.simpleicons.org/laravel/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">LARAVEL</text>
+  </g>
+
+  <!-- Badge 4: PYTHON -->
+  <g transform="translate(210, 240)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#3776AB" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#3776AB"/>
+    <image href="https://cdn.simpleicons.org/python/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">PYTHON</text>
+  </g>
+
+  <!-- Badge 5: DJANGO -->
+  <g transform="translate(210, 295)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#092E20" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#092E20"/>
+    <image href="https://cdn.simpleicons.org/django/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">DJANGO</text>
+  </g>
+
+  <!-- Badge 6: C++ -->
+  <g transform="translate(210, 350)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#00599C" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#00599C"/>
+    <image href="https://cdn.simpleicons.org/cplusplus/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">C++</text>
+  </g>
+
+  <!-- Badge 7: PHP -->
+  <g transform="translate(210, 405)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#777BB4" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#777BB4"/>
+    <image href="https://cdn.simpleicons.org/php/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">PHP</text>
+  </g>
+
+  <!-- Badge 8: GO -->
+  <g transform="translate(210, 460)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#00ADD8" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#00ADD8"/>
+    <image href="https://cdn.simpleicons.org/go/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">GO</text>
+  </g>
+
+  <!-- Badge 9: SQLITE -->
+  <g transform="translate(210, 515)">
+    <rect width="270" height="42" rx="7" fill="#111622" stroke="#003B57" stroke-width="2"/>
+    <rect width="45" height="42" rx="7" fill="#003B57"/>
+    <image href="https://cdn.simpleicons.org/sqlite/white" x="12" y="11" width="20" height="20"/>
+    <text x="65" y="27" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">SQLITE</text>
+  </g>
 </svg>
