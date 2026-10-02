@@ -1,4 +1,4 @@
-<svg viewBox="0 0 540 640" width="480" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 540 816" width="480" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Glow Khas NASA Worm Logo -->
     <filter id="wormGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -37,22 +37,29 @@
         fill: #ffffff;
         letter-spacing: 2px;
       }
+
+      .badge-index {
+        font-family: monospace;
+        font-weight: 700;
+        font-size: 11px;
+        fill: #ffffff;
+        letter-spacing: 1px;
+      }
     </style>
   </defs>
 
   <!-- Latar Belakang Deep Space -->
-  <rect width="540" height="640" rx="16" fill="#06090e" stroke="#1e293b" stroke-width="2.5"/>
+  <rect width="540" height="816" rx="16" fill="#06090e" stroke="#1e293b" stroke-width="2.5"/>
 
   <!-- Garis Pemisah Vertikal Taktikal -->
-  <line x1="175" y1="35" x2="175" y2="605" stroke="#1e293b" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="175" y1="35" x2="175" y2="781" stroke="#1e293b" stroke-width="2" stroke-dasharray="6 6"/>
 
   <!-- Indikator HUD Kiri -->
   <text x="35" y="48" class="hud-sub">SYS // 01</text>
-  <text x="35" y="605" class="hud-sub">STAGE: V</text>
+  <text x="35" y="781" class="hud-sub">STAGE: V</text>
 
   <!-- ================= KIRI: OPETEER (VERTIKAL ALA NASA WORM) ================= -->
-  <!-- Ditata di tengah vertikal kanvas (Y=325) dengan rotasi -90 derajat -->
-  <g transform="translate(105, 325) rotate(-90)">
+  <g transform="translate(105, 408) rotate(-90)">
     <text x="0" y="0" text-anchor="middle" class="nasa-worm-text">OPETEER</text>
   </g>
 
@@ -64,8 +71,7 @@
   <g transform="translate(210, 75)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#ED8B00" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#ED8B00"/>
-    <!-- Icon Java -->
-    <path d="M 23 15 C 23 15 25 18 20 22 C 16 25 21 28 23 30 C 20 30 17 28 17 26 C 17 23 23 20 23 15 Z M 26 18 C 26 18 28 20 25 24 C 23 26 26 28 27 29 C 25 29 23 28 23 26 C 23 24 26 21 26 18 Z" fill="#ffffff"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">01</text>
     <text x="66" y="27" class="badge-label">JAVA</text>
   </g>
 
@@ -73,8 +79,7 @@
   <g transform="translate(210, 131)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#4169E1" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#4169E1"/>
-    <!-- Icon Postgres (Elephant Trunk Outline) -->
-    <path d="M 23 14 C 18 14 15 18 15 23 C 15 27 18 30 22 30 L 22 26 C 20 26 18 24 18 22 C 18 19 20 17 23 17 C 26 17 28 19 28 22 L 31 22 C 31 18 28 14 23 14 Z M 22 24 C 22 25 23 26 24 26 C 25 26 26 25 26 24 C 26 23 25 22 24 22 C 23 22 22 23 22 24 Z" fill="#ffffff"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">02</text>
     <text x="66" y="27" class="badge-label">POSTGRESQL</text>
   </g>
 
@@ -82,8 +87,7 @@
   <g transform="translate(210, 187)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#FF2D20" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#FF2D20"/>
-    <!-- Icon Laravel (Isometric Cube Layers) -->
-    <path d="M 23 14 L 32 19 L 23 24 L 14 19 Z M 14 21 L 23 26 L 23 31 L 14 26 Z M 32 21 L 32 26 L 23 31 L 23 26 Z" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">03</text>
     <text x="66" y="27" class="badge-label">LARAVEL</text>
   </g>
 
@@ -91,8 +95,7 @@
   <g transform="translate(210, 243)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#3776AB" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#3776AB"/>
-    <!-- Icon Python -->
-    <path d="M 22 14 C 18 14 17 15 17 17 L 17 20 L 23 20 L 23 21 L 15 21 C 13 21 12 23 12 25 C 12 28 14 28 16 28 L 18 28 L 18 26 C 18 24 20 23 22 23 L 26 23 C 28 23 29 21 29 20 L 29 17 C 29 15 27 14 22 14 Z M 19 16 A 1 1 0 1 1 19 18 A 1 1 0 1 1 19 16 Z M 24 32 C 28 32 29 31 29 29 L 29 26 L 23 26 L 23 25 L 31 25 C 33 25 34 23 34 21 C 34 18 32 18 30 18 L 28 18 L 28 20 C 28 22 26 23 24 23 L 20 23 C 18 23 17 25 17 26 L 17 29 C 17 31 19 32 24 32 Z M 27 30 A 1 1 0 1 1 27 28 A 1 1 0 1 1 27 30 Z" fill="#ffffff"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">04</text>
     <text x="66" y="27" class="badge-label">PYTHON</text>
   </g>
 
@@ -100,8 +103,7 @@
   <g transform="translate(210, 299)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#092E20" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#092E20"/>
-    <!-- Icon Django (Lettermark) -->
-    <text x="17" y="28" font-family="Georgia, serif" font-weight="900" font-size="20" fill="#ffffff">dj</text>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">05</text>
     <text x="66" y="27" class="badge-label">DJANGO</text>
   </g>
 
@@ -109,8 +111,7 @@
   <g transform="translate(210, 355)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#00599C" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#00599C"/>
-    <!-- Icon C++ -->
-    <text x="13" y="28" font-family="-apple-system, sans-serif" font-weight="900" font-size="15" fill="#ffffff">C++</text>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">06</text>
     <text x="66" y="27" class="badge-label">C++</text>
   </g>
 
@@ -118,8 +119,7 @@
   <g transform="translate(210, 411)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#777BB4" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#777BB4"/>
-    <!-- Icon PHP -->
-    <text x="10" y="26" font-family="-apple-system, sans-serif" font-weight="900" font-size="13" fill="#ffffff">PHP</text>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">07</text>
     <text x="66" y="27" class="badge-label">PHP</text>
   </g>
 
@@ -127,8 +127,7 @@
   <g transform="translate(210, 467)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#00ADD8" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#00ADD8"/>
-    <!-- Icon Go -->
-    <text x="14" y="28" font-family="-apple-system, sans-serif" font-weight="900" font-size="17" fill="#ffffff">GO</text>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">08</text>
     <text x="66" y="27" class="badge-label">GO</text>
   </g>
 
@@ -136,8 +135,39 @@
   <g transform="translate(210, 523)">
     <rect width="285" height="42" rx="7" fill="#101726" stroke="#003B57" stroke-width="2"/>
     <rect width="46" height="42" rx="7" fill="#003B57"/>
-    <!-- Icon SQLite (Feather/Plume Symbol) -->
-    <path d="M 28 14 C 20 18 16 23 16 28 C 19 28 22 26 23 24 C 21 27 18 29 15 30 C 23 30 28 24 30 18 Z" fill="#ffffff"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">09</text>
     <text x="66" y="27" class="badge-label">SQLITE</text>
+  </g>
+
+  <!-- 10. DOCKER -->
+  <g transform="translate(210, 579)">
+    <rect width="285" height="42" rx="7" fill="#101726" stroke="#2496ED" stroke-width="2"/>
+    <rect width="46" height="42" rx="7" fill="#2496ED"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">10</text>
+    <text x="66" y="27" class="badge-label">DOCKER</text>
+  </g>
+
+  <!-- 11. KUBERNETES -->
+  <g transform="translate(210, 635)">
+    <rect width="285" height="42" rx="7" fill="#101726" stroke="#326CE5" stroke-width="2"/>
+    <rect width="46" height="42" rx="7" fill="#326CE5"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">11</text>
+    <text x="66" y="27" class="badge-label">KUBERNETES</text>
+  </g>
+
+  <!-- 12. LINUX -->
+  <g transform="translate(210, 691)">
+    <rect width="285" height="42" rx="7" fill="#101726" stroke="#FCC624" stroke-width="2"/>
+    <rect width="46" height="42" rx="7" fill="#FCC624"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index" fill="#101726">12</text>
+    <text x="66" y="27" class="badge-label">LINUX</text>
+  </g>
+
+  <!-- 13. FEDORA -->
+  <g transform="translate(210, 747)">
+    <rect width="285" height="42" rx="7" fill="#101726" stroke="#294172" stroke-width="2"/>
+    <rect width="46" height="42" rx="7" fill="#294172"/>
+    <text x="23" y="26" text-anchor="middle" class="badge-index">13</text>
+    <text x="66" y="27" class="badge-label">FEDORA</text>
   </g>
 </svg>
